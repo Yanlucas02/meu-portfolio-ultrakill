@@ -1,41 +1,32 @@
-/* =====================================================
-   PORTFÓLIO GAMER — ULTRAKILL
-   Carregado DEPOIS do bootstrap.min.css (sobrescreve estilos)
-   ===================================================== */
-
-/* ---------- CORES (EDITE AQUI para mudar o tema) ---------- */
 :root {
-  --fundo: #0a0a0c;          /* fundo da página */
-  --fundo-card: #15151a;     /* fundo de cards e painéis */
-  --fundo-card-2: #1d1d24;   /* tom mais claro */
-  --sangue: #c8102e;         /* vermelho carmesim principal */
-  --sangue-escuro: #7a0a1c;  /* vermelho escuro */
-  --ambar: #ffb000;          /* detalhe âmbar */
-  --ciano: #3fd0e0;          /* detalhe ciano sutil */
-  --texto: #ececec;          /* texto principal */
-  --texto-suave: #a8a8b3;    /* texto secundário */
-  --metal: #3a3a44;          /* bordas cinza metálico */
+  --fundo: #0a0a0c;
+  --fundo-card: #15151a;
+  --fundo-card-2: #1d1d24;
+  --sangue: #c8102e;
+  --sangue-escuro: #7a0a1c;
+  --ambar: #ffb000;
+  --ciano: #3fd0e0;
+  --texto: #ececec;
+  --texto-suave: #a8a8b3;
+  --metal: #3a3a44;
 }
 
-/* ---------- BASE ---------- */
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 80px; /* evita que o navbar cubra o título da seção */
+  scroll-padding-top: 80px;
 }
 body {
   background-color: var(--fundo);
-  /* Linhas sutis estilo CRT */
   background-image: repeating-linear-gradient(0deg, rgba(255,255,255,0.02) 0, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 3px);
   color: var(--texto);
   font-family: "Segoe UI", Tahoma, Arial, sans-serif;
-  overflow-x: hidden; /* evita rolagem horizontal */
+  overflow-x: hidden;
 }
 img { max-width: 100%; height: auto; }
 a { color: var(--ambar); }
 a:hover { color: #ffd060; }
 small, .text-muted { color: var(--texto-suave) !important; }
 
-/* ---------- NAVBAR ---------- */
 .navbar {
   background: linear-gradient(90deg, #000 0%, var(--sangue-escuro) 100%);
   border-bottom: 2px solid var(--sangue);
@@ -52,7 +43,6 @@ small, .text-muted { color: var(--texto-suave) !important; }
 .navbar .nav-link.active { color: var(--ambar); }
 .dropdown-menu-dark { border: 1px solid var(--sangue); }
 
-/* ---------- BOTÕES ---------- */
 .btn-ultra {
   background: var(--sangue);
   color: #fff;
@@ -71,19 +61,17 @@ small, .text-muted { color: var(--texto-suave) !important; }
 }
 .btn-outline-light { border-radius: 0; }
 
-/* ---------- ABERTURA (HERO) ---------- */
 .hero { padding: 1.5rem 0 0.5rem; }
 .hero-sub { color: var(--ciano); font-family: "Courier New", monospace; letter-spacing: 3px; font-size: 0.85rem; }
 .hero-title {
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: 2px;
-  font-size: clamp(1.6rem, 5vw, 3rem); /* responsivo */
+  font-size: clamp(1.6rem, 5vw, 3rem);
   text-shadow: 0 0 20px rgba(200, 16, 46, 0.5);
 }
 .text-blood { color: var(--sangue); }
 
-/* ---------- CARROSSEL ---------- */
 .carousel {
   border: 2px solid var(--metal);
   box-shadow: 0 0 25px rgba(200, 16, 46, 0.3);
@@ -99,177 +87,4 @@ small, .text-muted { color: var(--texto-suave) !important; }
   background: rgba(0, 0, 0, 0.65);
   border-left: 4px solid var(--sangue);
   left: 5%; right: 5%; bottom: 0.8rem;
-  padding: 0.4rem 0.8rem;
-}
-.carousel-caption h5 { margin: 0; font-size: clamp(0.85rem, 2.5vw, 1.2rem); text-transform: uppercase; }
-
-/* ---------- TÍTULOS DE SEÇÃO ---------- */
-.section-title {
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  font-weight: 800;
-  border-bottom: 2px solid var(--sangue);
-  padding-bottom: 0.4rem;
-  font-size: clamp(1.3rem, 4vw, 2rem);
-}
-.section-title i { color: var(--sangue); }
-.article-title { color: var(--ambar); font-weight: 700; }
-
-/* ---------- CARDS E PAINÉIS ---------- */
-.card, .panel {
-  background: var(--fundo-card);
-  border: 1px solid var(--metal);
-  border-radius: 0;
-  color: var(--texto);
-  box-shadow: 4px 4px 0 var(--sangue-escuro);
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-/* Efeito de hover só em dispositivos com mouse (evita "hover preso" no toque) */
-@media (hover: hover) {
-  .card:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--sangue); }
-}
-.panel { padding: 1.5rem; }
-.card-title { color: var(--ambar); font-weight: 700; text-transform: uppercase; }
-.card-img-top {
-  height: 190px;
-  object-fit: cover;
-  border-radius: 0;
-  border-bottom: 2px solid var(--sangue);
-  background: linear-gradient(135deg, var(--fundo-card-2), var(--sangue-escuro));
-}
-.blockquote-footer { color: var(--texto-suave); }
-.blockquote { border-left: 4px solid var(--sangue); padding-left: 1rem; }
-
-/* ---------- LISTAS ---------- */
-.list-group-item {
-  background: var(--fundo-card);
-  color: var(--texto);
-  border-color: var(--metal);
-}
-.list-group-flush > .list-group-item { background: transparent; }
-.icone { color: var(--sangue); width: 1.4em; text-align: center; }
-
-/* Badges de status (metas) */
-.badge.bg-success { background-color: #1f8a4c !important; }
-.badge-andamento { background: var(--ambar); color: #000; }
-.badge-planejado { background: var(--ciano); color: #000; }
-
-/* ---------- ACORDEÃO ---------- */
-.accordion-item {
-  background: var(--fundo-card);
-  border: 1px solid var(--metal);
-  border-radius: 0 !important;
-  color: var(--texto);
-}
-.accordion-button {
-  background: var(--fundo-card-2);
-  color: #fff;
-  border-radius: 0 !important;
-  font-weight: 600;
-}
-.accordion-button:not(.collapsed) {
-  background: var(--sangue-escuro);
-  color: #fff;
-  box-shadow: none;
-}
-.accordion-button:focus { box-shadow: 0 0 0 0.2rem rgba(200, 16, 46, 0.4); }
-.accordion-button::after { filter: invert(1); } /* seta branca */
-.accordion-body { background: var(--fundo-card); }
-
-/* ---------- MODAL ---------- */
-.modal-content {
-  background: var(--fundo-card);
-  color: var(--texto);
-  border: 2px solid var(--sangue);
-  border-radius: 0;
-}
-.modal-header { background: var(--sangue-escuro); border-bottom: 1px solid var(--sangue); }
-.modal-footer { border-top: 1px solid var(--metal); }
-.form-control {
-  background: var(--fundo);
-  color: var(--texto);
-  border: 1px solid var(--metal);
-  border-radius: 0;
-}
-.form-control:focus {
-  background: var(--fundo);
-  color: #fff;
-  border-color: var(--sangue);
-  box-shadow: 0 0 0 0.2rem rgba(200, 16, 46, 0.3);
-}
-.form-control::placeholder { color: #70707c; }
-
-/* ---------- BUSCA ---------- */
-.alert-ultra {
-  background: var(--fundo-card);
-  color: var(--texto);
-  border: 1px solid var(--ambar);
-  border-left: 5px solid var(--ambar);
-  border-radius: 0;
-}
-.busca-oculto { display: none !important; }        /* itens que não casam com a busca */
-mark.busca-destaque {                                /* termo encontrado */
-  background: var(--ambar);
-  color: #000;
-  padding: 0 2px;
-}
-.busca-ativa { outline: 2px solid var(--sangue); outline-offset: 2px; }
-
-/* ---------- BOTÃO VOLTAR AO TOPO ---------- */
-#btnTopo {
-  position: fixed;
-  right: 18px;
-  bottom: 18px;
-  width: 48px;
-  height: 48px;
-  background: var(--sangue);
-  color: #fff;
-  border: 2px solid #fff;
-  border-radius: 0;
-  font-size: 1.1rem;
-  cursor: pointer;
-  z-index: 1050;
-  opacity: 0;               /* escondido até rolar a página */
-  visibility: hidden;
-  transform: translateY(20px);
-  transition: all 0.3s;
-  box-shadow: 0 0 14px rgba(200, 16, 46, 0.7);
-}
-#btnTopo.visivel { opacity: 1; visibility: visible; transform: translateY(0); }
-#btnTopo:hover { background: #fff; color: var(--sangue); }
-
-/* ---------- RODAPÉ ---------- */
-.site-footer {
-  background: #000;
-  border-top: 2px solid var(--sangue);
-  color: var(--texto-suave);
-}
-
-/* ---------- IMAGEM AUSENTE (fallback aplicado pelo JS) ---------- */
-img.img-vazia {
-  min-height: 190px;
-  background: repeating-linear-gradient(45deg, var(--fundo-card), var(--fundo-card) 10px, var(--fundo-card-2) 10px, var(--fundo-card-2) 20px);
-}
-
-/* ---------- AJUSTES GERAIS DE MOBILE ---------- */
-.hero-title { overflow-wrap: anywhere; }                 /* nunca estoura a largura */
-.busca-item { scroll-margin-top: 90px; }                  /* resultado da busca não fica sob o navbar */
-.list-group-item.d-flex { gap: 0.75rem; }                 /* espaço entre texto e badge */
-.list-group-item .badge { flex-shrink: 0; white-space: nowrap; }
-#btnTopo { bottom: calc(18px + env(safe-area-inset-bottom)); }  /* respeita a barra do iPhone */
-
-/* ---------- RESPONSIVIDADE ---------- */
-/* Menu recolhido (celular e tablet, até 1199px) */
-@media (max-width: 1199.98px) {
-  .navbar .d-flex { margin-top: 0.5rem; }  /* busca abaixo dos links */
-}
-@media (max-width: 575.98px) {
-  .navbar-brand { font-size: 0.95rem; letter-spacing: 0; white-space: normal; }
-  .card-img-top { height: 160px; }
-  .panel { padding: 1rem; }
-  .list-group-item.d-flex { flex-wrap: wrap; }   /* badge desce se faltar espaço */
-  #btnTopo { width: 42px; height: 42px; right: 12px; }
-  .carousel-caption { display: none; }      /* legenda esconde no celular */
-  #feedbackBusca .btn { margin-top: 0.5rem; margin-left: 0 !important; }
-}
+  padding:
