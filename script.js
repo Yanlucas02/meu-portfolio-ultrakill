@@ -1,15 +1,5 @@
-/* =====================================================
-   PORTFÓLIO GAMER — SCRIPTS
-   Usa apenas JavaScript puro; não interfere no Bootstrap.
-   ===================================================== */
-
 document.addEventListener('DOMContentLoaded', function () {
 
-  /* -----------------------------------------------
-     1. BUSCA NA PÁGINA
-     - Itens pesquisáveis = elementos com a classe "busca-item" no HTML.
-       (para incluir outro bloco na busca, basta adicionar essa classe)
-     ----------------------------------------------- */
   var form = document.getElementById('formBusca');
   var campo = document.getElementById('campoBusca');
   var feedback = document.getElementById('feedbackBusca');
@@ -17,12 +7,10 @@ document.addEventListener('DOMContentLoaded', function () {
   var btnLimpar = document.getElementById('limparBusca');
   var itens = document.querySelectorAll('.busca-item');
 
-  // Remove acentos e deixa em minúsculas para comparar
   function normalizar(texto) {
     return texto.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
   }
 
-  // Remove os <mark> criados na busca anterior
   function removerDestaques() {
     document.querySelectorAll('mark.busca-destaque').forEach(function (m) {
       var pai = m.parentNode;
@@ -31,7 +19,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Destaca o termo dentro dos textos de um elemento
   function destacarTermo(elemento, termoNorm) {
     var walker = document.createTreeWalker(elemento, NodeFilter.SHOW_TEXT, null);
     var nos = [];
@@ -41,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function () {
       var norm = normalizar(original);
       var pos = norm.indexOf(termoNorm);
       if (pos === -1 || !original.trim()) return;
-      // Evita mexer em botões e títulos do acordeão (mantém o Bootstrap intacto)
       if (no.parentNode.closest('button, script, style')) return;
       var antes = document.createTextNode(original.slice(0, pos));
       var mark = document.createElement('mark');
@@ -83,7 +69,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     feedback.classList.remove('d-none');
     if (encontrados === 0) {
-      // EDITE AQUI: mensagem quando nada é encontrado
       textoFeedback.textContent = 'Nenhum resultado para "' + termo.trim() + '". Tente outra palavra.';
     } else {
       textoFeedback.textContent = encontrados + ' resultado(s) para "' + termo.trim() + '".';
@@ -93,10 +78,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   if (form) {
     form.addEventListener('submit', function (e) {
-      e.preventDefault(); // não recarrega a página
+      e.preventDefault();
       executarBusca(campo.value);
     });
-    // Filtra em tempo real enquanto digita
     campo.addEventListener('input', function () {
       if (campo.value.trim() === '') { limparBusca(); }
       else { executarBusca(campo.value); }
@@ -104,10 +88,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   if (btnLimpar) { btnLimpar.addEventListener('click', limparBusca); }
 
-  /* -----------------------------------------------
-     2. BOTÃO "VOLTAR AO TOPO"
-     - EDITE AQUI: 300 = distância (px) de rolagem para o botão aparecer
-     ----------------------------------------------- */
   var btnTopo = document.getElementById('btnTopo');
   var DISTANCIA_PARA_APARECER = 300;
 
@@ -118,11 +98,6 @@ document.addEventListener('DOMContentLoaded', function () {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  /* -----------------------------------------------
-     3. MODAL DE RECADOS
-     - Sem servidor: apenas confirma o envio e fecha o modal.
-     - Usa a API do Bootstrap (bootstrap.Modal), sem conflito.
-     ----------------------------------------------- */
   var btnEnviar = document.getElementById('enviarRecado');
   var modalEl = document.getElementById('recadoModal');
   if (btnEnviar && modalEl) {
@@ -140,11 +115,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  /* -----------------------------------------------
-     4. IMAGEM AUSENTE
-     - Se uma imagem não existir em imagens/, mostra um fundo padrão
-       em vez do ícone quebrado.
-     ----------------------------------------------- */
   document.querySelectorAll('img').forEach(function (img) {
     img.addEventListener('error', function () {
       img.classList.add('img-vazia');
